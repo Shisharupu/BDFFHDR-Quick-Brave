@@ -1,29 +1,19 @@
 # QuickBrave
+**Only for Bravely Default: Flying Fairy HD Remaster on Steam**
 
-**RT / F = Brave x3** for the character currently selecting a command in
-*Bravely Default: Flying Fairy HD Remaster*.
+Braves three times for the character currently selecting a command. Uses RT on controller and F on keyboard.
 
-One tap queues three Brave presses (one per frame — the game consumes one
-input per frame), giving the turn character 4 actions. It calls the game's
-own Brave handler, so all normal limits apply: it stops early if the game
-rejects a Brave (e.g. BP floor reached, character can't act).
+Made using https://github.com/Corgan/BDFFHD-Modding/tree/main
 
-## Controls
-
-| Input | Effect |
-|-------|--------|
-| Gamepad Right Trigger | Brave x3 (turn character) |
-| Keyboard F | Brave x3 (turn character) |
-
-Inputs only act during the battle command-selection phase. Outside of battle
-(or in sub-menus) they do nothing.
+# IMPORTANT NOTE
+This is a **code mod**, meaning you cannot use online play with this mod installed. Ignore this warning at your own risk!
 
 ## Install
 
-1. Install BepInEx 6 (Unity IL2CPP x64) into the game directory (next to
-   `BDFFHD.exe`) and launch the game once so it generates interop assemblies.
-2. Copy `QuickBrave.dll` into `BepInEx\plugins\QuickBrave\`.
-3. Launch the game. (Code mods disable online play.)
+1. Install BepInEx 6 (Unity IL2CPP x64) into the game directory (next to `BDFFHD.exe`) and launch the game once so it generates interop assemblies.
+2. Disable online mode in settings.
+3. Copy `QuickBrave.dll` into `BepInEx\plugins\QuickBrave\`.
+4. Brave a lot without breaking your fingers. 
 
 ## Build
 
@@ -31,12 +21,6 @@ Inputs only act during the battle command-selection phase. Outside of battle
 dotnet build
 ```
 
-Edit `<GameDir>` in `QuickBrave.csproj` if your Steam library is elsewhere.
-The DLL is output straight into `BepInEx\plugins\QuickBrave\`.
+Edit `<GameDir>` in `QuickBrave.csproj` if your game install is not at `C:\Program Files (x86)\Steam\steamapps\common\BDFFHD`
 
-## Notes
-
-- v1.0.0 — release. Tap-only; no Default shortcut, no party-wide mode.
-- Developed against the IL2CPP dump preserved in the toolkit repo
-  (`BDFFHD-Modding/_GameDump/`); see `BDFFHD-Modding/docs/brave-logic.md`
-  for the reverse-engineering notes.
+The DLL is automatically put into the game install location under `BepInEx\plugins\QuickBrave\`.
